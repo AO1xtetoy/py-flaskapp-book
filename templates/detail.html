@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h2 class="m-5" style="text-align:center">詳細</h2>
+<div class="card w-50 mb-3" style="margin: auto;">
+    <div class="card-body">
+        <h2 class="card-title">{{ post.title }}</h2>
+        <p>期限:{{ post.due.date() }}</p>
+        <a href="{{ post.detail }}" target="_blank" rel="noopener noreferrer" role="button" class="btn btn-info">今から読む！</a>
+        <a href="/" role="button" class="btn btn-outline-success">TOP</a>
+        <a href="/update/{{ post.id }}" role="button" class="btn btn-warning">更新</a>
+    </div>
+</div>
+{% endblock %}

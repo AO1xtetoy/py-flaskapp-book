@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<a href="/create" role="button" class="btn btn-info btn-lg m-5">本を登録する</a>
+<a href="https://myokoym.net/aozorasearch/" target="_blank" rel="noopener noreferrer" role="button" class="btn btn-info btn-lg m-5">本を検索する</a>
+
+{% for post in posts %}
+<div class="card w-50 mb-3" style="margin: auto;">
+    <div class="card-body">
+        {% if post.due.date() < today %}
+        <div class="alert alert-warning" role="alert">
+            期限切れです！
+        </div>
+        {% endif %}
+        <h2 class="card-title">{{ post.title }}</h2>
+        <p>期限:{{ post.due.date() }}</p>
+        <a href="/detail/{{ post.id }}" role="button" class="btn btn-secondary btn-sm">詳細</a>
+        <a href="/update/{{ post.id }}" role="button" class="btn btn-warning btn-sm">更新</a>
+        <a href="/delete/{{ post.id }}" role="button" class="btn btn-success btn-sm">読了</a>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
