@@ -1,3 +1,4 @@
 todo.db
 Procfile
 static/
+__pycache__/
